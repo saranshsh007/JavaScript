@@ -8,9 +8,19 @@
 </head>
 
 <body>
+    <h1>JavaScript String Methods</h1>
+    <p>Search a string for "W3Schools", and display the position of the match:</p>
+
+    <p id="demo2"></p>
+
     <h1>JS maths function</h1>
     <p>Display "Good day!" if the hour is less than 18:00:</p>
+    <h2>JavaScript try catch</h2>
 
+    <p>Please input a number between 5 and 10:</p>
+    <input id="demo1" type="text">
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="p01"></p>
     <p id="demo">Good Evening!</p>
     <script>
         console.log(Math.round(4.5),
@@ -108,6 +118,33 @@
             (cars instanceof Object) + "<br>" +
             (cars instanceof String) + "<br>" +
             (cars instanceof Number);
+
+        function myFunction() {
+            const message = document.getElementById("p01");
+            message.innerHTML = "";
+            let x = document.getElementById("demo1").value;
+            try {
+                if (x.trim() == "") throw "empty";
+                if (isNaN(x)) throw "not a number";
+                x = Number(x);
+                if (x < 5) throw "too low";
+                if (x > 10) throw "too high";
+            }
+            catch (err) {
+                message.innerHTML = "Input is " + err;
+            }
+        }
+        let text1 = "Visit W3Schools!";
+        let n = text1.search("W3Schools");
+        document.getElementById("demo2").innerHTML = n;
+        myFunction();
+
+        function myFunction() {
+            let carName = "Volvo";
+            document.getElementById("demo1").innerHTML = typeof carName + " " + carName;
+        }
+
+        document.getElementById("demo2").innerHTML = typeof carName;
     </script>
 </body>
 
