@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        x = 5;
+        elem = document.getElementById("demo");
+        elem.innerHTML = x;
+        var x;
+        // console.log(z);
+        // const z;
+        // z = 5;
+        // console.log(y);
+        // let y;
+        // y = 5;
+        var x = 5;  // Initialize x
+
+        elem = document.getElementById("demo");      // Find an element 
+        elem.innerHTML = "x is " + x + " and y is " + y;  // Display x and y
+
+        var y = 7;  // Initialize y
+        // Example object
+        var person = {
+            name: 'John',
+            age: 30,
+            greet: function (name, age) {
+                console.log('Hello, my name is ' + this.name + ' and I am ' + this.age + ' years old.');
+            }
+        };
+
+        // Invoking the greet function
+        person.greet("saransh", 20);
+
+        function greet() {
+            console.log(`Hello, ${this.name}!`);
+        }
+
+        const person1 = { name: 'John' };
+
+        greet.call(person1); // Outputs: Hello, John!
+
+        function greet() {
+            console.log(`Hello, ${this.name}!`);
+        }
+
+        const person2 = { name: 'John' };
+        const boundGreet = greet.bind(person2);
+
+        boundGreet(); // Outputs: Hello, John!
+
+        class Car {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+                console.log(name);
+                console.log(year);
+            }
+        }
+
+        const myCar1 = new Car("Ford", 2014);
+        const myCar2 = new Car("Audi", 2019);
+
+    </script>
+</body>
+
+</html>
