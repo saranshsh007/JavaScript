@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>JavaScript addEventListener()</h2>
+
+    <p>This example uses the addEventListener() method to add two click events to the same button.</p>
+    <p id="demo"></p>
+    <button id="myBtn">Try it</button>
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    <script>
+        document.getElementById("myBtn").addEventListener("click", myFunction);
+        function myFunction() {
+            alert(`hello`);
+            document.getElementById("demo").innerHTML = Date();
+        }
+        const myCollection = document.getElementsByTagName("p");
+
+        document.getElementById("demo").innerHTML = "This document contains " + myCollection.length + " paragraphs.";
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+            xhttp.open("GET", "ajax_info.txt");
+            xhttp.send();
+            const apiKey = '43dd8f5920054f1391770156230707';
+            const apiUrl = 'http://api.weatherapi.com/v1'; // Replace with the actual API endpoint URL
+
+            // Set any additional headers or parameters required by the API
+            const headers = {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json'
+            };
+
+            // Make the request
+            fetch(apiUrl, {
+                method: 'GET',
+                headers: headers
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Error: ' + response.status);
+                    }
+                })
+                .then(data => {
+                    // Process the data as needed
+                    console.log(data);
+                })
+                .catch(error => {
+                    // Handle the error
+                    console.error(error);
+                });
+
+            const obj = { name: "John", age: 30, city: "New York" };
+            const myJSON = JSON.stringify(obj);
+            document.getElementById("demo").innerHTML = myJSON;
+        }
+    </script>
+
+</body>
+
+</html>
